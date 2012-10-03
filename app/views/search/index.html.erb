@@ -1,0 +1,61 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			
+			<div class="searcharea">
+				<h1>Search</h1>
+				<input type="text" name="" id="searchbox" class='searchbox'>
+			</div>
+			<div class="content">
+				<h1>Results</h1>
+				<table class="table result-list">
+					<thead>
+					<tr>
+					<% @categories.each do |i| %>
+						<th><%= i %></th>
+					<% end %>
+					</tr>
+					</head>
+
+					<tbody>
+						<tr>
+							<td>{{#view App.Local}}{{/view}}</td>
+							<td>{{#view App.Social}}{{/view}}</td>
+							<td>{{#view App.Feeds}}{{/view}}</td>
+							<td>{{#view App.News}}{{/view}}</td>
+							<td>{{#view App.Web}}{{/view}}</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>		
+</div>
+
+<script type="text/x-handlebars">
+
+</script>
+
+<script type="text/javascript">
+	var t;
+
+	function search(){
+		var term = $("#searchbox").val();
+		var url = '<%= url_for(:action => 'query') %>';
+		$.post(url+'.json',{'term':term},function(response){
+			if(response[0].status == '200') handle_response(response[0]);
+		},'json');
+	}
+
+	function handle_response(response){
+		
+	}
+
+	$("#searchbox").keyup(function(){
+		clearTimeout(t);
+		t = setTimeout('search()',300);
+	});
+</script>
+
+

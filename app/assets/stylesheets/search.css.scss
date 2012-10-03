@@ -1,0 +1,39 @@
+// Place all the styles related to the search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.searchbox{
+	border-top:none !important;
+	border-left:none !important;
+	border-right:none !important;
+	border-bottom: solid 2px #eee !important;
+	box-shadow: none !important;
+	font-size:7em !important;
+	height:inherit !important;
+	width:100%!important;
+	background-color:#efefef;
+	border-radius:10px;
+	display:block;
+	padding:10px;
+}
+
+
+.result-list{margin:0;}
+.result-list td, .result-list th{
+	border-top:none;
+}
+
+.result-list td
+{
+	padding:20px;
+	border-right:solid 1px #ddd;
+}
+
+.result-list th
+{
+	color:#777;
+	font-size:2em;
+	/*border-bottom:solid 1px #ddd;*/
+	padding-left:0;
+	padding-right:20px;
+}
